@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/sfngl/OneDrive/Desktop/database.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser query pragmas" current="2"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="150"/><column_width id="3" width="4849"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="0" parent="0"/><expanded_item id="1" parent="0"/><expanded_item id="2" parent="0"/><expanded_item id="3" parent="0"/><expanded_item id="4" parent="0"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,9:mainEXERCISES"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">-- Inserimento di utenti nella tabella USERS
+INSERT INTO USERS (username, password) VALUES
+('john_doe', 'hashedpassword123'),
+('jane_doe', 'hashedpassword456'),
+('fit_guru', 'hashedpassword789');
+
+-- Inserimento di profili nella tabella PROFILES
+INSERT INTO PROFILES (user_id, date_of_birth, weight, height, total_exp, total_workouts) VALUES
+(1, '1990-01-15', 75.5, 180, 500, 10),  -- Profilo per john_doe
+(2, '1992-06-22', 62.0, 165, 700, 15),  -- Profilo per jane_doe
+(3, '1985-03-10', 85.0, 190, 1200, 25); -- Profilo per fit_guru
+
+-- Inserimento di esercizi nella tabella EXERCISES
+INSERT INTO EXERCISES (name, category, reward_exp, sets, repetitions) VALUES
+('Push-up', 'Strength', 50, 3, 12),
+('Squat', 'Strength', 60, 4, 15),
+('Plank', 'Core', 40, 3, 1),             -- Plank di solito non ha ripetizioni, 1 set per durata
+('Burpees', 'Cardio', 70, 3, 10),
+('Pull-up', 'Strength', 80, 3, 8);
+
+-- Inserimento di workout nella tabella WORKOUTS
+INSERT INTO WORKOUTS (name, category) VALUES
+('Full Body Beginner', 'Full Body'),
+('Cardio Blast', 'Cardio'),
+('Strength Master', 'Strength');
+
+-- Collegamento degli esercizi ai workout nella tabella WORKOUT_EXERCISES
+-- Full Body Beginner workout
+INSERT INTO WORKOUT_EXERCISES (workout_id, exercise_id) VALUES
+(1, 1),  -- Push-up
+(1, 2),  -- Squat
+(1, 3);  -- Plank
+
+-- Cardio Blast workout
+INSERT INTO WORKOUT_EXERCISES (workout_id, exercise_id) VALUES
+(2, 4);  -- Burpees
+
+-- Strength Master workout
+INSERT INTO WORKOUT_EXERCISES (workout_id, exercise_id) VALUES
+(3, 1),  -- Push-up
+(3, 5);  -- Pull-up
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
