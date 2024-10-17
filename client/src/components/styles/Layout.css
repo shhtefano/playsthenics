@@ -1,0 +1,68 @@
+/* General styles for larger screens */
+.layout-header {
+    text-align: center;
+    background-color: #1e1e1e;
+    padding-top: 20px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+  }
+  
+  .navbar {
+    margin-top: 10px;
+    padding: 0;
+    background-color: #1e1e1e;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 600px; /* Restrict max width for larger screens */
+  }
+  
+  .navbar ul li {
+    margin: 0 10px;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+  }
+  
+  .navbar ul li a:hover {
+    color: #ff6347; /* Hover color */
+  }
+  
+  /* Responsive design for smaller screens (mobile) */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2rem; /* Reduce title size on smaller screens */
+    }
+  
+    .navbar ul {
+      /* flex-direction: column; */
+      margin-top: 10px;
+      align-items: center;
+    }
+  
+    .navbar ul li {
+      margin: 10px 0; /* Add spacing between items when stacked */
+    }
+  
+    .navbar ul li a {
+      font-size: 1.5rem; /* Increase link size for better readability */
+      padding: 12px 20px; /* Add padding to make links easier to click */
+    }
+  }
+  
