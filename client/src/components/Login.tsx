@@ -1,8 +1,20 @@
 // src/components/Login.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { TextField, Button, Typography, Box, Link } from '@mui/material';
 
-const Login: React.FC = () => {
+interface LoginProps {
+    handleLogin: (credentials: { username: string; password: string }) => void;
+}
+
+const Login: React.FC<LoginProps> = ({ handleLogin }) => {
+    const [username, setUsername] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+
+    // This function is triggered when the user clicks on the Login button
+    const onLoginClick = () => {
+        handleLogin({ username, password });
+    };
+
     return (
         <Box
             sx={{
@@ -13,11 +25,11 @@ const Login: React.FC = () => {
                 mt: 8,
                 width: '100%',
                 maxWidth: 360, // Optional: Limit width for better alignment on large screens
-                mx: 'auto' // Centers the form horizontally
+                mx: 'auto', // Centers the form horizontally
             }}
         >
             <Typography variant="h4" component="h1" gutterBottom color="white">
-                Sign In !
+                Sign In!
             </Typography>
 
             <TextField
@@ -25,6 +37,8 @@ const Login: React.FC = () => {
                 variant="outlined"
                 fullWidth
                 required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)} // Update username state
                 InputProps={{
                     style: { borderColor: 'white' }, // Set border color to white
                 }}
@@ -45,9 +59,6 @@ const Login: React.FC = () => {
                     },
                     '& .MuiInputBase-input': {
                         color: 'white', // Set text color to white
-                    },
-                    '& .MuiInputBase-input::placeholder': {
-                        color: 'white', // Set placeholder color to white
                     },
                 }}
             />
@@ -58,6 +69,8 @@ const Login: React.FC = () => {
                 variant="outlined"
                 fullWidth
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)} // Update password state
                 InputProps={{
                     style: { borderColor: 'white' }, // Set border color to white
                 }}
@@ -79,23 +92,19 @@ const Login: React.FC = () => {
                     '& .MuiInputBase-input': {
                         color: 'white', // Set text color to white
                     },
-                    '& .MuiInputBase-input::placeholder': {
-                        color: 'white', // Set placeholder color to white
-                    },
                 }}
             />
 
             <Button
-                type="submit"
                 fullWidth
                 variant="contained"
                 color="primary"
                 sx={{ mt: 2, backgroundColor: 'black', color: 'white', borderRadius: 20 }}
+                onClick={onLoginClick} // Handle login on button click
             >
                 Login
             </Button>
 
-            {/* Updated Box for the Links */}
             <Box
                 sx={{
                     display: 'flex',
@@ -118,10 +127,10 @@ const Login: React.FC = () => {
                     variant="body2"
                     sx={{
                         fontWeight: 'bold',
-                        color: '#fff',  // White color for the link
+                        color: '#fff', // White color for the link
                         textDecoration: 'none', // Remove underline
                         fontSize: '1.2rem', // Bigger text size
-                        mt: 3
+                        mt: 3,
                     }}
                 >
                     Register
@@ -139,10 +148,10 @@ const Login: React.FC = () => {
                     variant="body2"
                     sx={{
                         fontWeight: 'bold',
-                        color: '#fff',  // White color for the link
+                        color: '#fff', // White color for the link
                         textDecoration: 'none', // Remove underline
                         fontSize: '1.2rem', // Bigger text size
-                        mt: 3
+                        mt: 3,
                     }}
                 >
                     TRY OUR DEMO
