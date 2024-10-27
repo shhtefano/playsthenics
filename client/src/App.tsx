@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { Profile } from './components/Profile';
 import API from './API';
+import ParkMap from './components/ParkMap';
 
 interface Credentials {
   username: string;
@@ -71,6 +72,7 @@ function App() {
       <Route index path="/" element={loggedIn ? <Navigate to="/profile" /> : <Navigate to="/login" />}/>
       <Route path="/login" element={loggedIn ? <Navigate to="/profile" /> : <Login handleLogin={handleLogin} />}/>
       <Route path="/profile" element={loggedIn ? <Profile username={username} role={role} handleLogout={handleLogout} /> : <Navigate to="/login" />} />
+      <Route path="/map" element={<ParkMap/>} />
         <Route path="*" element={<WorkInProgess/>}/>
 
       </Route>

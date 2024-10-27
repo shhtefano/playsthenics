@@ -58,6 +58,11 @@ const Layout: React.FC<isLoggedInProps> = ({ loggedIn }) => {
                 Friends
               </Button>
             </Grid>
+            <Grid item>
+              <Button color="inherit" onClick={() => handleNavigation('/map')} sx={{ color: 'white' }}>
+                Park Map
+              </Button>
+            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
