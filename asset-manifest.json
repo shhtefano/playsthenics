@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/playsthenics/static/css/main.9bf22f83.css",
+    "main.js": "/playsthenics/static/js/main.0fc7e3ef.js",
+    "static/media/spritesheet.svg": "/playsthenics/static/media/spritesheet.a4e0eb7ad904a4858361.svg",
+    "index.html": "/playsthenics/index.html",
+    "main.9bf22f83.css.map": "/playsthenics/static/css/main.9bf22f83.css.map",
+    "main.0fc7e3ef.js.map": "/playsthenics/static/js/main.0fc7e3ef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9bf22f83.css",
+    "static/js/main.0fc7e3ef.js"
+  ]
+}
